@@ -25,6 +25,7 @@ var bouncy = module.exports = function (opts, cb) {
 };
 
 var handler = bouncy.handler = function (cb, c) {
+    c.on('error', function (e) { console.log('bouncy.Error', e.message, e.stack); });
     var parser = parsley(c, function (req) {
         c.setMaxListeners(0);
         
